@@ -39,6 +39,7 @@
 					<!--Logo-->
 					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Build with Beauty">
 				</a>
+				<!--横の丸いやつ-->
                 <div id="nav-toggle">
 					<!--ページ-->
                     <div id="page1">
@@ -88,7 +89,7 @@
 				<!--新しい画像1-->
 				<div id="page_item1">
 					<div class="Top_page1">
-						<p>3</p>
+						<p>1</p>
 					</div>
 				</div>
 			</div>
