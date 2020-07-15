@@ -1,23 +1,89 @@
-@charset "utf-8";
-/---------------------------------
-テーマとしてWPに認識させるための記述↓
----------------------------------/
-/*
-theme Name: slider
-Author: 佐伯　幸世
-Description: 自作テーマ
-version： 1.0.0
-
+@charset "UTF-8";
 /*トップページ*/
 /*////////////////////////////////
-ページめくれる
-
-ページを増やしたら(修正)と書かれた箇所も増やす
+共通
 ////////////////////////////////*/
+body {
+  font-family: YuGothic,'Yu Gothic',sans-serif;
+  margin: auto;
+  padding: 0;
+}
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.com_ttl {
+  text-align: center;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+}
+
+.com_ttl h2 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.com_ttl h2 span {
+  color: #c9000c;
+}
+
+@media screen and (max-width: 425px) {
+  .com_ttl h2 {
+    font-size: 38px;
+  }
+}
+
+.com_ttl p {
+  margin: 10px 0;
+  font-size: 21px;
+}
+
+@media screen and (max-width: 425px) {
+  .com_ttl p {
+    font-size: 18px;
+  }
+}
+
+.btn1 {
+  padding: 5px 0;
+  text-align: center;
+  margin: auto;
+  width: 80px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.btn2 {
+  padding: 10px 0;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  margin: auto;
+  width: 80px;
+}
+
+.btn2 a {
+  color: #fff;
+}
+
+/* スマホの時のみ改行 */
+.add_line {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .add_line {
+    display: block;
+  }
+}
+
+/*////////////////////////////////
+ナビ
+////////////////////////////////*/
 #top-head {
-  top: 0px;
-  position:fixed;
+  top: 0;
+  position: fixed;
   margin-top: 0;
   color: #fffbfb;
   text-decoration: none;
@@ -33,140 +99,111 @@ version： 1.0.0
   margin: auto;
 }
 
-/*一番上に表示されるものの位置*/
 #top-head #mobile-head {
   width: 100%;
-  height: 600px;
+  height: 100px;
   z-index: 999;
-  position: absolute;
-  top:100px;
+  position: relative;
 }
 
-/*ロゴの位置*/
+@media screen and (max-width: 425px) {
+  #top-head #mobile-head {
+    height: 60px;
+  }
+}
+
 #top-head #mobile-head .logo {
   position: absolute;
   left: 0px;
   top: 10px;
   margin-left: 5%;
 }
-/*ロゴの大きさ*/
+
 #top-head #mobile-head .logo img {
   width: 120px;
 }
 
-/*////////////////////////////////
-ページが戻るアニメーション
-////////////////////////////////*/
-/*ページがめくれる*/
-@keyframes page_return{
-  0%{
-    transform:translateY(-120vh) rotate(15deg);
-  }
-
-  30%{
-    transform:translateY(-60vh) rotate(-15deg);
-  }
-
-  100%{
-    transform: translateY(0vh);
+@media screen and (max-width: 425px) {
+  #top-head #mobile-head .logo img {
+    width: 50px;
   }
 }
 
-/*////////////////////////////////
-  ページが増えるとここが増える (修正)
-////////////////////////////////*/
-/*１ページ目*/
-#top-head .Top_page1 {
+#top-head #global-nav {
   position: absolute;
   /*ナビが隠れる位置*/
-  top: 0vh;
+  top: -120vh;
   background-color: #000;
+  opacity: 0.85;
   width: 100%;
   height: 100vh;
-  padding: 10px 0;
-  z-index: 101;
-}
-
-.return .Top_page1 {
-  animation: page_return 1s linear forwards;
-}
-
-
-/*2ページ目*/
-#top-head .Top_page2 {
-  position: absolute;
-  /*ナビが隠れる位置*/
-  top: 0vh;
-  background-color: rgb(255, 217, 252);
-  width: 100%;
-  height: 100vh;
+  text-align: center;
   padding: 10px 0;
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
-  z-index: 101;
 }
 
-.return .Top_page2 {
-  animation: page_return 1s linear forwards;
+#top-head #global-nav ul {
+  margin: 0;
+  padding-top: 100px;
+  padding-left: 0;
+  list-style: none;
+  position: static;
+  right: 0;
+  bottom: 0;
+  font-size: 25px;
+  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 }
 
-/*3ページ目*/
-#top-head .Top_page3 {
-  position: absolute;
-  /*ナビが隠れる位置*/
-  top: 0vh;
-  background-color: rgb(217, 241, 255);
+@media screen and (max-width: 425px) {
+  #top-head #global-nav ul {
+    padding-top: 60px;
+  }
+}
+
+#top-head #global-nav ul li {
+  color: #fff;
+  list-style: none;
+  font-size: 25px;
+  float: none;
+  position: static;
+}
+
+@media screen and (max-width: 425px) {
+  #top-head #global-nav ul li {
+    font-size: 20px;
+  }
+}
+
+#top-head #global-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
   width: 100%;
-  height: 100vh;
-  padding: 10px 0;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  z-index: 101;
+  display: block;
+  padding: 18px 0;
 }
 
-.return .Top_page3 {
-  animation: page_return 1s linear forwards;
+@media screen and (max-width: 425px) {
+  #top-head #global-nav ul li a {
+    font-size: 15px;
+    padding: 10px 0;
+  }
 }
 
-/*4ページ目*/
-#top-head .Top_page4 {
-  position: absolute;
-  /*ナビが隠れる位置*/
-  top: 0vh;
-  background-color: rgb(217, 255, 228);
-  width: 100%;
-  height: 100vh;
-  padding: 10px 0;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  z-index: 101;
+#top-head #global-nav ul li .nav_min {
+  font-size: 12px;
 }
 
-.return .Top_page4 {
-  animation: page_return 1s linear forwards;
+#top-head #global-nav ul .nav_hr {
+  width: 17px;
+  margin: 0 auto;
 }
 
-/*5ページ目*/
-#top-head .Top_page5 {
-  position: absolute;
-  /*ナビが隠れる位置*/
-  top: 0vh;
-  background-color: rgb(241, 72, 81);
-  width: 100%;
-  height: 100vh;
-  padding: 10px 0;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  z-index: 101;
+#top-head #global-nav .nav-item {
+  padding: 0;
+  margin: auto;
 }
-
-.return .Top_page5 {
-  animation: page_return 1s linear forwards;
-}
-
-
-
-/*-------終わり--------*/
 
 .fixed {
   margin-top: 0;
@@ -179,137 +216,101 @@ version： 1.0.0
   transition: top 0.65s ease-in;
 }
 
-#nav-toggle{
+#nav-toggle {
   position: absolute;
-  left: 35px;
+  right: 35px;
   /*トグルのトップからの位置*/
-  top: 50%;
+  top: 35px;
   /*トグルの幅*/
   width: 50px;
-  height: 50px;
+  height: 36px;
   cursor: pointer;
   z-index: 101;
+}
+
+@media screen and (max-width: 425px) {
+  #nav-toggle {
+    width: 30px;
+    top: 20px;
+  }
 }
 
 #nav-toggle div {
   position: relative;
 }
 
-
-/*////////////////////////////////
-  横の白い丸 (修正)
-////////////////////////////////*/
-#nav-toggle #page1{
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: 10px;
+#nav-toggle span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  background: #000;
+  left: 0;
+  -webkit-transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
+  /*トグル*/
 }
 
-#nav-toggle #page2{
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: 10px;
+#nav-toggle span:nth-child(1) {
+  top: 0;
 }
 
-#nav-toggle #page3{
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: 10px;
+#nav-toggle span:nth-child(2) {
+  top: 15px;
 }
 
-#nav-toggle #page4{
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: 10px;
+#nav-toggle span:nth-child(3) {
+  top: 30px;
 }
 
-#nav-toggle #page5{
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-top: 10px;
-}
-
-/*////////////////////////////////
-ページがめくれるアニメーション
-////////////////////////////////*/
-/*ページがめくれる*/
-@keyframes page_pera{
-  0%{
-    transform:translateY(0vh) rotate(15deg);
+@media screen and (max-width: 425px) {
+  #nav-toggle span {
+    /* トグルの高さ（１本）*/
+    height: 3px;
+    /*トグル*/
   }
-
-  30%{
-    transform:translateY(-60vh) rotate(-15deg);
+  #nav-toggle span:nth-child(1) {
+    top: 0;
   }
-
-  100%{
-    transform: translateY(-120vh);
+  #nav-toggle span:nth-child(2) {
+    top: 10px;
+  }
+  #nav-toggle span:nth-child(3) {
+    top: 20px;
   }
 }
 
-
-/*////////////////////////////////
-ページがめくれる (修正)
-////////////////////////////////*/
-
-.open .Top_page1 {
-  animation: page_pera 1s linear forwards;
+.open #nav-toggle span:nth-child(1) {
+  top: 11px;
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
+  width: 100%;
 }
 
-.open .Top_page2 {
-  animation: page_pera 1s linear forwards;
+.open #nav-toggle span:nth-child(2) {
+  width: 0;
+  left: 50%;
 }
 
-.open .Top_page3 {
-  animation: page_pera 1s linear forwards;
+.open #nav-toggle span:nth-child(3) {
+  top: 11px;
+  -webkit-transform: rotate(-315deg);
+          transform: rotate(-315deg);
+  width: 100%;
 }
 
-.open .Top_page4 {
-  animation: page_pera 1s linear forwards;
+.open #global-nav {
+  -webkit-transform: translateY(120vh);
+          transform: translateY(120vh);
 }
 
-.open .Top_page5 {
-  animation: page_pera 1s linear forwards;
-}
-
-
-/*////////////////////////////////
-ページが降りてくる (修正)
-////////////////////////////////*/
-
-.return .Top_page1 {
-  animation: page_return 1s linear forwards;
-  /*ページ番号が遅くなるにつれ奥に設置したいため、数字が小さくなる(110-ページ数)*/
-}
-
-.return .Top_page2 {
-  animation: page_return 1s linear forwards;
-  /*ページ番号が遅くなるにつれ奥に設置したいため、数字が小さくなる(110-ページ数)*/
-}
-
-.return .Top_page3 {
-  animation: page_return 1s linear forwards;
-  /*ページ番号が遅くなるにつれ奥に設置したいため、数字が小さくなる(110-ページ数)*/
-}
-
-.return .Top_page4 {
-  animation: page_return 1s linear forwards;
-  /*ページ番号が遅くなるにつれ奥に設置したいため、数字が小さくなる(110-ページ数)*/
-}
-
-.return .Top_page5 {
-  animation: page_return 1s linear forwards;
-  /*ページ番号が遅くなるにつれ奥に設置したいため、数字が小さくなる(110-ページ数)*/
+.open #global-nav .sub_title {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  color: #5c5c5c;
+  display: block;
+  line-height: 8px;
 }
 
 /*////////////////////////////////
@@ -679,7 +680,7 @@ NEWS
 #client .wrap_client .img_client {
   width: 50%;
   height: 400px;
-  background-image: url(../img/client.jpg);
+  background-image: url(img/client.jpg);
   background-size: cover;
 }
 
@@ -722,7 +723,7 @@ HAIRDRESSER
   #hairdresser .img_sp_hairdresser {
     width: 100%;
     height: 270px;
-    background-image: url(../img/hairdresser.jpg);
+    background-image: url(img/hairdresser.jpg);
     background-size: cover;
   }
 }
@@ -750,7 +751,7 @@ HAIRDRESSER
 #hairdresser .wrap_hairdresser .img_hairdresser {
   width: 50%;
   height: 400px;
-  background-image: url(../img/hairdresser.jpg);
+  background-image: url(img/hairdresser.jpg);
   background-size: cover;
 }
 
@@ -766,7 +767,7 @@ COMPANY
 #company {
   margin: 0;
   width: 100%;
-  background-image: url(../img/company.png);
+  background-image: url(img/company.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -860,7 +861,7 @@ CONTACT
   display: inline-block;
   width: 55px;
   height: 40px;
-  background-image: url(../img/mail.png);
+  background-image: url(img/mail.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -896,7 +897,7 @@ CONTACT
   display: inline-block;
   width: 55px;
   height: 40px;
-  background-image: url(../img/tell.png);
+  background-image: url(img/tell.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -919,7 +920,7 @@ CONTACT
   display: inline-block;
   width: 55px;
   height: 40px;
-  background-image: url(../img/mail.png);
+  background-image: url(img/mail.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -934,52 +935,10 @@ CONTACT
 }
 
 /*////////////////////////////////
-Topボタン
-////////////////////////////////*/
-#top_btn {
-  position: relative;
-}
-
-#top_btn .top_btn {
-  position: fixed;
-  right: 50px;
-  bottom: 50px;
-  width: 90px;
-  height: 90px;
-  color: #fff;
-  background-color: #C9000C;
-  font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
-  text-align: center;
-  padding: 5px;
-  margin: auto;
-}
-
-#top_btn .top_btn a {
-  margin: auto;
-}
-
-#top_btn .top_btn h3 {
-  font-size: 21px;
-  margin: 0;
-}
-
-#top_btn .top_btn p {
-  font-size: 14px;
-  margin: 0;
-}
-
-@media screen and (max-width: 425px) {
-  #top_btn {
-    display: none;
-  }
-}
-
-/*////////////////////////////////
 Footer
 ////////////////////////////////*/
 #footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px auto;
   background-color: black;
 }
 
@@ -1046,10 +1005,5 @@ Footer
   text-align: center;
   color: #fff;
   font-size: 14px;
-  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
-}
-
-#footer .copy p {
-  margin-bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */

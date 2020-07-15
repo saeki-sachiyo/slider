@@ -1,0 +1,937 @@
+@charset "UTF-8";
+/*トップページ*/
+/*////////////////////////////////
+共通
+////////////////////////////////*/
+body{
+    font-family: YuGothic,'Yu Gothic',sans-serif;
+    margin: auto;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+.com_ttl{
+    text-align: center;
+    font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+
+    h2{
+        font-size : 48px;
+        margin: 0;
+        span{
+            color : rgb(201, 0, 12);
+        }
+
+        @media screen and (max-width:425px){
+            font-size : 38px;
+        }
+    }
+
+    p{
+        margin: 10px 0;
+        font-size : 21px;
+
+        @media screen and (max-width:425px){
+            font-size : 18px;
+        }
+    }
+}
+
+.btn1{
+    padding: 5px 0;
+    text-align: center;
+    margin: auto;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.btn2{
+    padding: 10px 0;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    margin: auto;
+    width: 80px;
+ 
+    a{
+     color: #fff;
+    }
+}
+
+/* スマホの時のみ改行 */
+.add_line{
+    display:none;
+
+    @media screen and (max-width:768px){
+        display:block;
+    }
+}
+
+/*////////////////////////////////
+ナビ
+////////////////////////////////*/
+#top-head {
+    top: 0;
+    position: fixed;
+    margin-top: 0;
+    color: rgb(255, 251, 251);
+    text-decoration: none;
+    width: 100%;
+    z-index: 2000;
+
+    .inner{
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: auto;
+    }
+
+    /*ナビ背景*/
+    #mobile-head{
+        width: 100%;
+        height: 100px;
+        z-index: 999;
+        position: relative;
+
+        @media screen and (max-width:425px){
+            height:60px;
+        }
+
+
+        .logo{
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            margin-left: 5%;
+
+            img{
+                width: 120px;
+
+                @media screen and (max-width:425px){
+                    width: 50px;
+                }
+            }
+        }
+    }
+
+    #global-nav{
+        position: absolute;
+        /*ナビが隠れる位置*/
+        top: -120vh;
+        background-color:#000;
+        opacity: 0.85;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        padding: 10px 0;
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+
+        ul{
+            margin: 0;
+            padding-top: 100px;
+            padding-left: 0;
+            list-style: none;
+            position: static;
+            right: 0;
+            bottom: 0;
+            font-size: 25px;
+            font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+
+            @media screen and (max-width:425px){
+                padding-top: 60px;
+            }
+
+            li{
+                color: #fff;
+                list-style: none;
+                font-size: 25px;
+                float: none;
+                position: static;
+
+                @media screen and (max-width:425px){
+                    font-size: 20px;
+                }
+
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 18px;
+                    width: 100%;
+                    display: block;
+                    padding: 18px 0;
+
+                    @media screen and (max-width:425px){
+                        font-size: 15px;
+                        padding: 10px 0;
+                    }
+                }
+
+                .nav_min{
+                    font-size: 12px;
+                }
+            }
+
+            .nav_hr{
+                width: 17px;
+                margin: 0 auto;
+            }
+        }
+
+        .nav-item{
+            padding:0;
+            margin: auto;
+        }
+    }
+}
+
+.fixed{
+    margin-top: 0;
+    top: 0;
+    position: fixed;
+    padding-top: 10px;
+    background: #fff;
+    opacity: 0.8;
+    transition: top 0.65s ease-in;
+}
+
+#nav-toggle{
+    position: absolute;
+    right: 35px;
+    /*トグルのトップからの位置*/
+    top: 35px;
+    /*トグルの幅*/
+    width: 50px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 101;
+
+    @media screen and (max-width:425px){
+        width: 30px;
+        top: 20px;
+    }
+
+    div{
+        position: relative;
+    }
+
+    span{
+        display: block;
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background: #000;
+        left: 0;
+        transition: .35s ease-in-out;
+
+        /*トグル*/
+        &:nth-child(1) {
+            top: 0;
+        }
+        &:nth-child(2) {
+            top: 15px;
+        }
+        &:nth-child(3) {
+            top: 30px;
+        }
+
+        @media screen and (max-width:425px){
+            /* トグルの高さ（１本）*/
+            height: 3px;
+
+             /*トグル*/
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: 10px;
+            }
+            &:nth-child(3) {
+                top: 20px;
+            }
+        }
+    }
+}
+
+.open{
+    #nav-toggle{
+        span{
+            &:nth-child(1) {
+                top: 11px;
+                transform: rotate(315deg);
+                width: 100%;
+            }
+
+            &:nth-child(2){
+                width: 0;
+                left: 50%;
+            }
+
+            &:nth-child(3){
+                top: 11px;
+                transform: rotate(-315deg);
+                width: 100%;
+            }   
+        }
+    }
+    
+    #global-nav{
+        transform: translateY(120vh);
+
+        .sub_title{
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            color: rgb(92, 92, 92);
+            display: block;
+            line-height: 8px;
+        }
+    }
+}
+
+
+
+/*////////////////////////////////
+topview
+////////////////////////////////*/
+#topview{
+    position: relative;
+    font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+    color : rgb(0, 0, 0);
+
+    .com_ttl{
+        img{
+            width: 85px;
+        }
+    }
+
+    .img_topview{
+        width: 100%;
+        height: 100vh;
+        background-image: url(../img/top.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .area_topview{
+        position: absolute;
+        top:280px;
+        left:120px;
+
+        @media screen and (max-width:768px){
+            top:400px;
+            left:35px;
+        }
+
+        @media screen and (max-width:320px){
+            top:300px;
+            left:5px;
+
+            img{
+                width: 25px;
+            }
+        }
+
+        h2{
+            font-size : 54px;
+            position : relative;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 30px;
+            font-weight: normal;
+
+            span{
+                color : rgb(201, 0, 12);
+            }
+
+            @media screen and (max-width:768px){
+                font-size : 32px;
+            }
+        }
+
+        .hr_top{
+            width: 310px;
+            margin: 0;
+
+            @media screen and (max-width:768px){
+                width: 200px;
+            }
+        }
+
+        .hr_bottom{
+            width: 310px;
+            margin: 0 0 0 auto;
+            text-align: right;
+
+            @media screen and (max-width:768px){
+                width: 200px;
+            }
+        }
+
+        p{
+            font-size: 18px;
+            margin: 0;
+
+                @media screen and (max-width:768px){
+                    font-size : 12px;
+                }
+
+            span{
+                font-size: 32px;
+
+                @media screen and (max-width:768px){
+                    font-size : 18px;
+                }
+            }
+
+        }
+
+        .item2_topview{
+            margin-left: 25px;
+        }
+
+        .item3_topview{
+            margin-left: 50px;
+        }
+    }
+
+    a {
+        display:block;
+
+        @media screen and (max-width:768px){
+            display:none;
+        }
+        span{
+            position:absolute;
+            top:90%;;
+            left:50%;
+            width:30px;
+            height:50px;
+            margin-left:-15px;
+            border:2px solid #4d4d4d;
+            border-radius:50px;
+            box-sizing:border-box;
+            z-index: 5;
+
+            &::before{
+                position:absolute;
+                top:10px;
+                left:50%;
+                content:'';
+                width:6px;
+                height:6px;
+                margin-left:-3px;
+                background-color:#4d4d4d;
+                border-radius:100%;
+                -webkit-animation:sdb 2s infinite;
+                animation:sdb 2s infinite;
+                box-sizing:border-box;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes sdb{
+    0%{-webkit-transform:translate(0, 0);opacity:0;}
+    40%{opacity:1;}
+    80%{-webkit-transform:translate(0, 20px);opacity:0;}
+    100%{opacity:0;}
+}
+ @keyframes sdb{0%{transform:translate(0, 0);opacity:0;}
+    40%{opacity:1;}
+    80%{transform:translate(0, 20px);opacity:0;}
+    100%{opacity:0;}
+}
+
+/*////////////////////////////////
+About
+////////////////////////////////*/
+#about{
+    padding: 60px;
+
+    @media screen and (max-width:768px){
+        padding: 60px 16px;
+    }
+
+    .com_ttl{
+        img{
+            width: 80px;
+        }
+    }
+
+    .area_about h3{
+        width: 800px;
+        margin: 30px auto;
+        padding: 16px 20px;
+        font-size: 27px;
+        border-top: 1px solid #666666;
+        border-bottom: 1px solid #666666;
+        text-align: center;
+        font-weight: normal;
+
+        @media screen and (max-width:1024px){
+            width: 100%;
+            padding-right: 1%;
+            padding-left: 1%;
+        }
+
+        @media screen and (max-width:425px){
+            font-size: 21px;
+        }
+    }
+
+    .area_txt{
+        width: 600px;
+        margin: auto;
+        font-size: 18px;
+
+        @media screen and (max-width:1024px){
+            width: 90%;
+        }
+
+        @media screen and (max-width:425px){
+            font-size: 15px;
+        }
+    }
+}
+
+/*////////////////////////////////
+NEWS
+////////////////////////////////*/
+#news{
+    padding: 60px 90px;
+    background-color: #000;
+
+    @media screen and (max-width:768px){
+        padding: 60px 16px;
+    }
+
+    .com_ttl{
+        color: #fff;
+        img{
+            width: 30px;
+        }
+    }
+
+    .area_news{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: auto;
+    }
+
+    .item_news{
+        position: relative;
+        background-color: #fff;
+        padding: 25px 18px;
+        width: 18%;
+
+        @media screen and (max-width:1024px){
+            width: 40%;
+            // padding-right:auto;
+            // padding-left:auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width:768px){
+            width: 100%;
+            margin: auto;
+            margin: 10%;
+        }
+
+
+        .icon_news{
+            position: absolute;
+            top:-12px;
+            left: 10px;
+        }
+
+        .cont_news{
+            font-size: 16px;
+            border-bottom: 2px dashed #000;
+            .area{
+                font-size: 12px;
+            }
+            .station{
+                font-size: 21px;
+                font-weight: bolder;
+            }
+
+            .job{
+                font-size: 16px;
+
+                span{
+                    color : #C9000C;
+                    border: 1px solid #C9000C;
+                    padding: 5px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .txt{
+            font-size: 14px;
+        }
+    }
+}
+/*////////////////////////////////
+ To CLIENT
+////////////////////////////////*/
+#client{
+    margin: 0;
+
+    .com_ttl{
+        img{
+            width: 45px;
+        }
+    }
+
+    .wrap_client{
+        display: flex;
+        flex-wrap: wrap;
+
+        .img_client{
+            width: 50%;
+            height: 400px;
+            background-image: url(../img/client.jpg);
+            background-size: cover;
+
+            @media screen and (max-width:768px){
+                width: 100%;
+                height: 270px;
+            }
+        }
+
+        .com_ttl{
+            width: 50%;
+            margin: auto;
+
+            @media screen and (max-width:768px){
+                width: 100%;
+                padding: 50px;
+            }
+        }
+
+    }
+}
+
+/*////////////////////////////////
+HAIRDRESSER
+////////////////////////////////*/
+#hairdresser{
+    margin: 0;
+
+    .com_ttl{
+        img{
+            width: 35px;
+        }
+    }
+
+    .img_sp_hairdresser{
+        margin-top: 0;
+        padding: 0;
+
+        @media screen and (max-width:768px){
+            width: 100%;
+            height: 270px;
+            background-image: url(../img/hairdresser.jpg);
+            background-size: cover;
+        }
+    }
+
+    .wrap_hairdresser{
+        display: flex;
+        flex-wrap: wrap;
+
+        .com_ttl{
+            width: 50%;
+            margin: auto;
+
+            @media screen and (max-width:768px){
+                width: 100%;
+                padding: 50px 0;
+            }
+        }
+    
+        .img_hairdresser{
+            width: 50%;
+            height: 400px;
+            background-image: url(../img/hairdresser.jpg);
+            background-size: cover;
+
+            @media screen and (max-width:768px){
+                display: none;
+            }
+        }
+    }
+}
+
+/*////////////////////////////////
+COMPANY
+////////////////////////////////*/
+#company{
+    margin: 0;
+    width: 100%;
+    background-image: url(../img/company.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media screen and (max-width:768px){
+        width: 100%;
+        height:270px;
+        padding: 50px 0;
+    }
+
+    .com_ttl{
+        padding: 80px 90px;
+        color: #fff;
+        img{
+            width: 45px;
+        }
+    }
+
+    .btn1{
+        border: none;
+    }
+}
+
+/*////////////////////////////////
+CONTACT
+////////////////////////////////*/
+#contact{
+    padding: 60px 40px 30px;
+    text-align: center;
+
+    @media screen and (max-width:768px){
+        padding: 60px 16px 30px;
+    }
+
+    .area_contact{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn3{
+        padding: 10px;
+        margin: 15px;
+
+        .btn3_in{
+            font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+            border: 1px solid #fff;
+            padding: 15px 45px;
+            color: #fff;
+            width: 350px;
+
+            @media screen and (max-width:425px){
+                width: 250px;
+                padding: 10px;
+            }
+        }
+
+        .btn_1{
+            font-size: 14px;
+            margin-top:5px;
+            margin-bottom:5px;
+            @media screen and (max-width:425px){
+                font-size: 10px;
+            }
+        }
+
+        .btn_2{
+            font-size: 46px;
+            margin: 0;
+            &::before{
+                content: '';
+                display: inline-block;
+                width: 55px;
+                height: 40px;
+                background-image: url(../img/mail.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 10px;
+            }
+
+            @media screen and (max-width:425px){
+                font-size: 32px;
+            }
+        }
+
+        .btn_3{
+            font-size: 14px;
+            margin: 0;
+            padding: 3px 20px;
+            border: 1px solid #fff;
+
+            @media screen and (max-width:425px){
+                font-size: 12px;
+                padding: 3px 2px;
+            }
+        }
+    }
+
+    .btn_Tell{
+        background-color: #808080;
+        .btn_2{
+            &::before{
+                content: '';
+                display: inline-block;
+                width: 55px;
+                height: 40px;
+                background-image: url(../img/tell.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 10px;
+
+                @media screen and (max-width:425px){
+                    width: 45px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+
+    .btn_Email{
+        background-color: #000000;
+        .btn_2{
+            &::before{
+                content: '';
+                display: inline-block;
+                width: 55px;
+                height: 40px;
+                background-image: url(../img/mail.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 10px;
+
+                @media screen and (max-width:425px){
+                    width: 45px;
+                    height: 30px;
+                }
+            }
+        }
+    } 
+}
+
+/*////////////////////////////////
+Topボタン
+////////////////////////////////*/
+#top_btn{
+    position: relative;
+
+    .top_btn{
+        position: fixed;
+        right: 50px;
+        bottom: 50px;
+        width: 90px;
+        height: 90px;
+        color: #fff;
+        background-color:#C9000C;
+        font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+        text-align: center;
+        padding: 5px;
+        margin: auto;
+
+        a{
+            margin: auto;
+        }
+
+        h3{
+            font-size: 21px;
+            margin: 0;
+        }
+
+        p{
+            font-size: 14px;
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-width:425px){
+        display: none;
+    }
+
+}
+
+/*////////////////////////////////
+Footer
+////////////////////////////////*/
+#footer{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(0, 0, 0);
+
+    .footer_logo{
+        text-align: center;
+
+        img{
+            width: 140px;
+
+            @media screen and (max-width:425px){
+                width: 100px;
+            }
+        }
+
+        
+    }
+
+    .footer_area ul{
+        font-size: 18px;
+        display: flex;
+        text-align: center;
+        margin: 35px auto;
+        width: 950px;
+        padding: 0;
+        font-family: 'Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+
+        @media screen and (max-width:1024px){
+            display: none;
+        }
+
+        li{
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            &::before{
+                display: inline;
+                content: '｜';
+                color: #fff;
+                margin: auto;
+            }
+            a{
+                color: #fff;
+                padding: 0 20px;
+            }
+        }
+
+        .nav_sub{
+            font-size: 12px;
+        }
+    }
+
+    .copy{
+        margin-bottom: 0;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+
+        p{
+            margin-bottom: 0;
+        }
+    }
+
+}
