@@ -16,8 +16,8 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<!--スタイルシート-->
 	<link href="<?php echo get_template_directory_uri(); ?>/css/reset.css" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/css/style_particle.css" rel="stylesheet">
 	<link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet">
-
 	<!--js-->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/base.js"></script>
 
@@ -32,13 +32,29 @@
 <!--ーーーーーーーーーーーーーーーー
 ナビ
 ーーーーーーーーーーーーーーーー-->
-    <header id="top-head">
+    <div id="top-head">
         <div class="inner">
-            <div id="mobile-head">				
+            <div id="mobile-head">
+				<!--ーーーーーーーーーーーーーーーー
+					常に表示されるもの
+				ーーーーーーーーーーーーーーーー-->	
 				<a class="logo" href="/">
 					<!--Logo-->
-					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Build with Beauty">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/RAUM_txt.png" alt="Raum">
 				</a>
+				<!--パーティクル-->
+				<div class="container">
+					<div class="wrapper">
+						<div class="particle"></div>
+						<div class="particle"></div>
+						<div class="particle"></div>
+						<div class="particle"></div>
+						<div class="particle"></div>
+						<div class="particle"></div>
+						<div class="particle"></div>
+						<div class="particle"></div>
+					</div>
+				</div>
 				<!--横の丸いやつ-->
                 <div id="nav-toggle">
 					<!--ページ-->
@@ -63,122 +79,65 @@
 			<div class="Top_page">
 				<!--ページは古い順に書く-->
 				<!--新しい画像5-->
-				<div id="page_item5">
+				<div id="page_item5" class="return">
 					<div class="Top_page5">
-						<p>5</p>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/cat5.jpg" alt=””> 
+						<div class="sub_ttl">
+							<h1><span>S</span>tep<span>4</span></h1>
+							<p>トリートメントで
+							<br>芯からしなやか綺麗な髪へ
+							<br>生まれ変わる</p>
+						</div>
 					</div>
 				</div>
 				<!--新しい画像4-->
-				<div id="page_item4">
+				<div id="page_item4" class="return">
 					<div class="Top_page4">
-						<p>4</p>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/cat4.jpg" alt=””> 
+						<div class="sub_ttl">
+							<h1><span>S</span>tep<span>3</span></h1>
+							<p>自宅でできる簡単ケア方法
+							<br>を丁寧にお伝えします</p>
+						</div>
 					</div>
 				</div>
 				<!--新しい画像3-->
-				<div id="page_item3">
+				<div id="page_item3" class="return">
 					<div class="Top_page3">
-						<p>3</p>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/cat3.jpg" alt=””>
+						<div class="sub_ttl">
+							<h1><span>S</span>tep<span>2</span></h1>
+							<p>似合わせカット</p>
+							<p>あなたの骨格から
+							<br>似合う髪型をご提案させて頂きます。</p>
+						</div>
 					</div>
 				</div>
 				<!--新しい画像2-->
-				<div id="page_item2">
+				<div id="page_item2" class="return">
 					<div class="Top_page2">
-						<p>2</p>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/cat2.jpg" alt=””>
+						<div class="sub_ttl">
+							<h1><span>S</span>tep<span>1</span></h1>
+							<p>まずはカウンセリング</p>
+							<p>髪のお悩み教えてください</p>
+						</div>
 					</div>
 				</div>
 				<!--新しい画像1-->
-				<div id="page_item1">
+				<div id="page_item1" class="return">
 					<div class="Top_page1">
-						<p>1</p>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/cat1.jpg" alt=””>
+						<div class="col_ttl">
+							<h1><span>B</span>eauty <span>L</span>abo</h1>
+							<p>なりたい髪に</p>
+							<p>なりたいあなたへ</p>
+						</div>
 					</div>
 				</div>
 			</div>
         </div>
-	</header>
-
-<!--ーーーーーーーーーーーーーーーー
-	Top
-ーーーーーーーーーーーーーーーー-->
-	<section id="topview">
-		<div class="wrap_topview">
-			<div class="img_topview">
-				<!--Top画像-->
-			</div>
-			<div class="area_topview">
-				<!--タイトル-->
-				<h2><span>B</span>uild with Beauty</h2>
-				<hr class="hr_top">
-				<p class="item1_topview">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/num1.png" alt="Build with Beauty">
-					<span>美容師</span>という<span>仕事</span>をもっと<span>自由</span>に
-				</p>
-				<p class="item2_topview">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/num2.png" alt="Build with Beauty">
-					<span>美容師</span>という<span>仕事</span>でもっと<span>裕福</span>に
-				</p>
-				<p class="item3_topview">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/num3.png" alt="Build with Beauty">
-					<span>美容師</span>という<span>仕事</span>がもっと<span>素敵</span>に
-				</p>
-				<hr class="hr_bottom">
-			</div>
-			<a href="/">
-				<span>
-				</span>
-			</a>
-		</div>
-	</section>
-
-<!--ーーーーーーーーーーーーーーーー
-Footer
-ーーーーーーーーーーーーーーーー-->
-	<footer id="footer">
-		<div class="wrap_footer">
-			<div class="footer_logo">
-				<!--Logo画像-->
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo_bottom.png" alt="Build with Beauty"> 
-			</div>
-			<nav class="footer_area">
-				<ul>
-					<li>
-						<a href="/">
-							Top
-							<br><span  class="nav_sub">トップ<span>
-						</a>
-					</li>
-					<li>
-						<a href="/">
-							NEWS
-							<br><span  class="nav_sub">お知らせ<span>
-						</a>
-					</li>
-					<li>
-						<a href="/">
-						TO CLIENT
-							<br><span  class="nav_sub">企業様・サロンオーナー様へ<span>
-						</a>
-					</li>
-					<li>
-						<a href="/">
-							HAIRDRESSER
-							<br><span  class="nav_sub">美容師さんへ<span>
-						</a>
-					</li>
-					<li>
-						<a href="/">
-							COMPANY
-							<br><span  class="nav_sub">会社概要<span>
-						</a>
-					</li>
-					<li>
-						<a href="/">
-							CONTACT
-							<br><span  class="nav_sub">お問い合わせ<span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
+	</div>
 
 		<!--ーーーーーーーーーーーーーーーー
 		コピーライト

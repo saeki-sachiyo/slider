@@ -40,6 +40,14 @@
 			$('#page3').css('transform','scale(1)');
 			$('#page4').css('transform','scale(1)');
 			$('#page5').css('transform','scale(1)');
+
+			/*ページの拡大*/
+			$('#page_item1').addClass('scale');
+			$('#page_item2').removeClass('scale');
+			$('#page_item3').removeClass('scale');
+			$('#page_item4').removeClass('scale');
+			$('#page_item5').removeClass('scale');
+
 		});
 		// 2ページ目を押すと、1ページ目が開く
 		$('#page2').click(function(){
@@ -59,7 +67,16 @@
 			$('#page3').css('transform','scale(1)');
 			$('#page4').css('transform','scale(1)');
 			$('#page5').css('transform','scale(1)');
+
+			/*ページの拡大*/
+			$('#page_item1').removeClass('scale');
+			$('#page_item2').addClass('scale');
+			$('#page_item3').removeClass('scale');
+			$('#page_item4').removeClass('scale');
+			$('#page_item5').removeClass('scale');
 		});
+
+
 		// 3ページ目を押すと、3ページ目より前のページが開く
 		$('#page3').click(function(){
 			$('#page_item1').addClass('open');
@@ -78,7 +95,16 @@
 			$('#page3').css('transform','scale(1.8)');
 			$('#page4').css('transform','scale(1)');
 			$('#page5').css('transform','scale(1)');
+
+			/*ページの拡大*/
+			$('#page_item1').removeClass('scale');
+			$('#page_item2').removeClass('scale');
+			$('#page_item3').addClass('scale');
+			$('#page_item4').removeClass('scale');
+			$('#page_item5').removeClass('scale');
 		});
+
+
 		// 4ページ目を押すと、4ページ目より前のページが開く
 		$('#page4').click(function(){
 			$('#page_item1').addClass('open');
@@ -97,7 +123,16 @@
 			$('#page3').css('transform','scale(1)');
 			$('#page4').css('transform','scale(1.8)');
 			$('#page5').css('transform','scale(1)');
+
+			/*ページの拡大*/
+			$('#page_item1').removeClass('scale');
+			$('#page_item2').removeClass('scale');
+			$('#page_item3').removeClass('scale');
+			$('#page_item4').addClass('scale');
+			$('#page_item5').removeClass('scale');
 		});
+
+
 		// 5ページ目を押すと、5ページ目より前のページが開く
 		$('#page5').click(function(){
 			$('#page_item1').addClass('open');
@@ -114,6 +149,13 @@
 			$('#page3').css('transform','scale(1)');
 			$('#page4').css('transform','scale(1)');
 			$('#page5').css('transform','scale(1.8)');
+
+			/*ページの拡大*/
+			$('#page_item1').removeClass('scale');
+			$('#page_item2').removeClass('scale');
+			$('#page_item3').removeClass('scale');
+			$('#page_item4').removeClass('scale');
+			$('#page_item5').addClass('scale');
 		});
 	});
 })(jQuery);
